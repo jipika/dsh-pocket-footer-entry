@@ -1,0 +1,9 @@
+# dsh-pocket-footer-entry bundle patch
+# 这是 dsh.bundle manifest 要求的加载配置（缺了它，包即使写进
+# dsh.profile.bundles 也会被宿主静默跳过 —— 表现为 boot manifest 里搜不到本包）。
+# 真正的 UI 在 client 半边（lib/client.js），注册到 sidebar.footer.action 的 order 26
+# —— 即原来「远程控制」（@agents-anywhere/dsh-bridge-next）占的那一格。
+# host 半边（lib/index.js）是空壳，只让本插件在 cordis 树里有个节点。
+- insert:
+    - id: pocket-footer-entry
+      name: 'dsh-pocket-footer-entry'

@@ -1,0 +1,41 @@
+{
+  "name": "dsh-pocket-footer-entry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "把 dsh-pocket 的手机访问入口做成侧边栏底部的快捷按钮（跟「远程控制」同一行）",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "dsh-pocket": "*"
+  },
+  "peerDependenciesMeta": {
+    "dsh-pocket": {
+      "optional": true
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ]
+}
